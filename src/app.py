@@ -6,7 +6,7 @@ from src.backend.gen_ai import Rag
 import os
 import re
 
-["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
+os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
 
 with open('styles.css') as f:
     css = f.read()
