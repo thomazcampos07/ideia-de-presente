@@ -6,7 +6,7 @@ import os
 #import re
 import openai
 
-os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
+#os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
 
 with open('styles.css') as f:
     css = f.read()
@@ -70,7 +70,8 @@ def main():
         # Gerar sugestões de presentes com OpenAI
         if st.button("Gerar sugestões de presentes"):
             with st.spinner("Gerando sugestões... isso pode levar alguns segundos."):
-                openai.api_key = ["OPENAI_API_KEY"]
+                #openai.api_key = ["OPENAI_API_KEY"]
+                openai.api_key = st.secrets('openai-key-ideia-presente')
 
                 prompt = (
                     f"Baseado nas seguintes informações, sugira uma lista de presentes: \n"
