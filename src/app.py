@@ -1,10 +1,11 @@
 import streamlit as st
+import openai
+import os
+
 #from langchain.globals import set_llm_cache
 #from langchain_community.cache import InMemoryCache
 #from src.backend.gen_ai import Rag 
-import os
 #import re
-import openai
 
 #os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
 
