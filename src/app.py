@@ -1,9 +1,10 @@
 import streamlit as st
-from langchain.globals import set_llm_cache
-from langchain_community.cache import InMemoryCache
-from src.backend.gen_ai import Rag 
+#from langchain.globals import set_llm_cache
+#from langchain_community.cache import InMemoryCache
+#from src.backend.gen_ai import Rag 
 import os
-import re
+#import re
+import openai
 
 os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
 
@@ -62,9 +63,41 @@ def main():
         }
         st.success("Informações salvas com sucesso! 🎉")
 
-        # Exibir o resultado
+        # Exibir o resumo das escolhas
         st.write("### Resumo das escolhas:")
         st.json(escolhas)
+
+        # Gerar sugestões de presentes com OpenAI
+        if st.button("Gerar sugestões de presentes"):
+            with st.spinner("Gerando sugestões... isso pode levar alguns segundos."):
+                openai.api_key = ["OPENAI_API_KEY"]
+
+                prompt = (
+                    f"Baseado nas seguintes informações, sugira uma lista de presentes: \n"
+                    f"- Para quem é o presente: {destinatario}\n"
+                    f"- Ocasião: {ocasiao}\n"
+                    f"- Características: {', '.join(caracteristicas)}\n"
+                    f"- Detalhes: {detalhes}"
+                )
+
+                try:
+                    response = openai.Completion.create(
+                        engine="text-davinci-003",
+                        prompt=prompt,
+                        max_tokens=150,
+                        n=1,
+                        stop=None,
+                        temperature=0.7
+                    )
+
+                    sugestoes = response.choices[0].text.strip()
+
+                    # Exibir as sugestões no app
+                    st.write("### Sugestões de Presentes:")
+                    st.write(sugestoes)
+
+                except Exception as e:
+                    st.error(f"Erro ao gerar sugestões: {e}")
 
 if __name__ == "__main__":
     main()
