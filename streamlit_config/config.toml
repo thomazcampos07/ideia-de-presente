@@ -1,0 +1,12 @@
+[server]
+port = 8501
+baseUrlPath = "/@httpPath"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor="#25d366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#D3D3D3"
+textColor="#000000"

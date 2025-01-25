@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+#ia-entregabilidade, h3, h1, h2 {
+    font-family:Montserrat;
+    color: #25d366;
+}
+
+[data-testid="stHeader"] {
+    display: none;
+}
+
+[data-testid="stDecoration"] {
+    display: none;
+}
+
+
+/* [data-testid="stPageLink-NavLink"] {
+    border-color: #25d366;
+} */
+
+[data-testid="chatAvatarIcon-user"]{
+    background-color: #D3D3D3;
+}
+
+[data-testid="stForm"]{
+    border: none;
+}
+
+[data-testid="stMarkdownContainer"]{
+    font-family:Montserrat;
+}
+
+[data-testid="column"]:nth-of-type(2){
+        text-align: end;
+}
+
+[data-testid="StyledFullScreenButton"]{
+    display: none;
+}
+
+.red{
+    color: red;
+}
+
+div.stPageLink  a  {
+    background-color: whitesmoke;
+    border: 3px solid #25d366
+}
