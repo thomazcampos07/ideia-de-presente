@@ -9,10 +9,10 @@ import os
 
 #os.environ["OPENAI_API_KEY"] = st.secrets('openai-key-ideia-presente')
 
-with open('styles.css') as f:
-    css = f.read()
+# with open('styles.css') as f:
+#     css = f.read()
 
-st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+# st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 
 def main():
